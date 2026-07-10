@@ -496,7 +496,7 @@ set(DYLIB_INSTALL_NAME "/usr/lib/libicucore.A.dylib")
 add_darling_library(icucore SHARED ${icucore_SRCS})
 make_fat(icucore)
 set_target_properties(icucore PROPERTIES OUTPUT_NAME "icucore.A")
-target_link_libraries(icucore system cxx)
+target_link_libraries(icucore system system_m cxx)
 
 # set like this to make targets that link to icucore also define it
 #
@@ -520,4 +520,3 @@ InstallSymlink(libicucore.A.dylib "${CMAKE_INSTALL_PREFIX}/libexec/darling/usr/l
 if (NOT DARLING_NO_EXECUTABLES)
 	install(FILES ${CMAKE_CURRENT_BINARY_DIR}/icudt66l.dat DESTINATION libexec/darling/usr/share/icu)
 endif (NOT DARLING_NO_EXECUTABLES)
-
